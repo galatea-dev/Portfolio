@@ -1,0 +1,39 @@
+from random import randint
+
+def RNGSUS() :
+    
+    print("IT'S TIME TO ROLL")
+    modifier_input = input("What is your modifier? (ie. -1, 0, 3) >>>")
+    modifier = int(modifier_input)
+    
+    roll_input = input("Are you rolling with advantage, disadvantage or neither? >>>")
+    roll_type = roll_input
+
+    if (roll_type == "exit") :
+        return False
+
+    firstroll = randint(1,20) + modifier
+    secondroll = randint(1,20) + modifier
+
+    rollresult1 = "You got a {}!".format(firstroll)
+    rollresult2 = "You got a {}!".format(secondroll)
+    
+    print(firstroll)
+    print(secondroll)
+
+    if (roll_type == "advantage") :
+        if ( firstroll > secondroll ) :
+            print(rollresult1)
+        else :
+            print(rollresult2)
+    elif (roll_type == "disadvantage") :
+        if ( firstroll < secondroll ) :
+            print(rollresult1)
+        else :
+            print(rollresult2)
+    else :
+        print(rollresult1)
+    return True
+
+while (RNGSUS()) :
+    pass
